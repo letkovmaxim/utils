@@ -50,6 +50,9 @@ public class ClassUtils {
         if (fld.length != 0) {
             System.out.println("Поля класса :");
             for (Field fl : fld) {
+                for (Annotation an : fl.getAnnotations()) {
+                    System.out.println("    @" + an.annotationType().getSimpleName());
+                }
                 if (fl.getModifiers() != 0) {
                     System.out.println("    " + Modifier.toString(fl.getModifiers())
                             + " " + fl.getType().getSimpleName()
@@ -88,6 +91,9 @@ public class ClassUtils {
         if (mthd.length != 0) {
             System.out.println("Методы класса :");
             for (Method mth : mthd) {
+                for (Annotation an : mth.getAnnotations()) {
+                    System.out.println("    @" + an.annotationType().getSimpleName());
+                }
                 if (mth.getModifiers() != 0) {
                     System.out.print("    " + Modifier.toString(mth.getModifiers())
                             + " " + mth.getReturnType().getSimpleName()
